@@ -38,3 +38,38 @@ depends = ["theme"]
 "shared/wezterm/wezterm.lua" = "~/.config/wezterm/wezterm.lua"
 "shared/wezterm/colors.lua" = "~/.config/wezterm/colors.lua"
 
+[wofi]
+depends = ["theme"]
+[wofi.files]
+"shared/wofi/config" = "~/.config/wofi/config"
+"shared/wofi/style.css" = "~/.config/wofi/style.css"
+
+[waybar-shared]
+depends = ["theme"]
+[waybar-shared.files]
+"shared/waybar/style.css" = "~/.config/waybar/style.css"
+"shared/waybar/right.jsonc" = "~/.config/waybar/right.jsonc"
+
+[swaync]
+depends = ["theme"]
+[swaync.files]
+"shared/swaync/config.json" = "~/.config/swaync/config.json"
+"shared/swaync/style.css" = "~/.config/swaync/style.css"
+
+[wob]
+depends = ["theme"]
+[wob.files]
+"shared/wob/wob.ini" = "~/.config/wob/wob.ini"
+
+#################### rices ################################
+[sway]
+depends = [
+    "theme", 
+    "wezterm",
+    "wofi",
+    "waybar-shared",
+]
+[sway.files]
+"rices/sway/sway.conf" = "~/.config/sway/config"
+"rices/sway/config.d" = "~/.config/sway/config.d"
+"rices/sway/waybar.jsonc" = "~/.config/waybar/sway.jsonc"

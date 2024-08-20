@@ -1,0 +1,31 @@
+{
+	"modules-left": [
+		"sway/workspaces",
+		"sway/mode",
+		"custom/layout"
+	],
+	"modules-center": ["sway/window"],
+	"sway/mode": {
+		"format": " {}"
+	},
+	"sway/workspaces": {
+		"all-outputs": false,
+		"disable-scroll": true,
+		"format": "{index} {icon}",
+		"format-icons": {
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		}
+	},
+	"sway/window": {
+		"max-length": 80,
+		"tooltip": false
+	},
+	"custom/layout": {
+		"tooltip": false,
+		"exec": "swaymsg -mrt subscribe '[\"input\"]' | jq -r --unbuffered \"select(.change == \\\"xkb_layout\\\") | .input | select(.type == \\\"keyboard\\\") | .xkb_active_layout_name | .[0:2]\""
+	},
+
+	"include": ["~/.config/waybar/right.jsonc"]
+}
