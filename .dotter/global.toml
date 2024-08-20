@@ -17,8 +17,15 @@ base0D = "81a2be"
 base0E = "b294bb"
 base0F = "a3685a"
 
+[common]
+depends = ["shell"]
+
 [wezterm]
 depends = ["theme"]
 [wezterm.files]
 "shared/wezterm/wezterm.lua" = "~/.config/wezterm/wezterm.lua"
 "shared/wezterm/colors.lua" = "~/.config/wezterm/colors.lua"
+
+[shell.files]
+"common/shell/zshrc" = "~/.zshrc"
+"common/shell/omp.yaml" = "~/.config/ohmyposh/zen.yaml"

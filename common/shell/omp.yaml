@@ -1,0 +1,42 @@
+version: 2
+blocks:
+  - type: prompt
+    alignment: left
+    newline: true
+    segments:
+      - type: path
+        style: plain
+        foreground: blue
+        background: transparent
+        properties:
+          style: full
+        template: "{{ .Path }}"
+      - type: git
+        style: plain
+        foreground: darkGrey
+        background: transparent
+        template: " {{ .Ref }}{{if .Staging.Changed }}*{{end}} {{if gt .Behind 0}} {{end}}{{if gt .Ahead 0}} {{end}}"
+        properties:
+          branch_icon: ""
+          commit_icon: "@"
+          fetch_status: true
+  - type: prompt
+    alignment: left
+    newline: true
+    segments:
+      - type: text
+        style: plain
+        foreground: magenta
+        background: transparent
+        template: "❯ "
+        foreground_templates:
+          - "{{if gt .Code 0}}red{{end}}"
+          - "{{if eq .Code 0}}magenta{{end}}"
+transient_prompt:
+  foreground: magenta
+  background: transparent
+  # newline: true
+  template: "❯ "
+  foreground_templates:
+    - "{{if gt .Code 0}}red{{end}}"
+    - "{{if eq .Code 0}}magenta{{end}}"
