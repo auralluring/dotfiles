@@ -1,4 +1,5 @@
 version: 2
+console_title_template: "{{if eq .Folder .UserName}}~{{else}}{{ .Folder}}{{end}}"
 blocks:
   - type: prompt
     alignment: left
@@ -20,6 +21,17 @@ blocks:
           branch_icon: ""
           commit_icon: "@"
           fetch_status: true
+  - type: rprompt
+    overflow: hidden
+    segments:
+      - type: executiontime
+        style: plain
+        foreground: yellow
+        background: transparent
+        template: "{{ .FormattedMs }}"
+        properties:
+          threshold: 3000
+          style: round
   - type: prompt
     alignment: left
     newline: true
@@ -28,15 +40,19 @@ blocks:
         style: plain
         foreground: magenta
         background: transparent
-        template: "❯ "
+        template: " "
         foreground_templates:
           - "{{if gt .Code 0}}red{{end}}"
           - "{{if eq .Code 0}}magenta{{end}}"
+secondary_prompt:
+  foreground: magenta
+  background: transparent
+  template: " "
 transient_prompt:
   foreground: magenta
   background: transparent
   # newline: true
-  template: "❯ "
+  template: " "
   foreground_templates:
     - "{{if gt .Code 0}}red{{end}}"
     - "{{if eq .Code 0}}magenta{{end}}"
