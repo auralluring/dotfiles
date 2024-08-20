@@ -17,15 +17,24 @@ base0D = "81a2be"
 base0E = "b294bb"
 base0F = "a3685a"
 
+##################### common ##############################
 [common]
-depends = ["shell"]
+depends = [
+    "shell",
+    "ssh",
+]
 
+[shell.files]
+"common/shell/zshrc" = "~/.zshrc"
+"common/shell/omp.yaml" = { target = "~/.config/ohmyposh/zen.yaml", type = "symbolic" }
+
+[ssh.files]
+"common/ssh" = "~/.ssh/config"
+
+#################### shared ###############################
 [wezterm]
 depends = ["theme"]
 [wezterm.files]
 "shared/wezterm/wezterm.lua" = "~/.config/wezterm/wezterm.lua"
 "shared/wezterm/colors.lua" = "~/.config/wezterm/colors.lua"
 
-[shell.files]
-"common/shell/zshrc" = "~/.zshrc"
-"common/shell/omp.yaml" = "~/.config/ohmyposh/zen.yaml"
