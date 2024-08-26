@@ -57,6 +57,7 @@ zstyle ':completion:*' menu no
 
 # aliases
 alias ls="ls --color"
+alias lz=lazygit
 
 # shell integrations
 eval "$(fzf --zsh)"
