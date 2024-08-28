@@ -12,7 +12,7 @@ THEME=`yq '.theme.variables' ~/src/dotfiles/.dotter/themes/catppuccin-macchiato.
 mkdir -p ~/.config/wezterm
 
 # link main config
-ln -sr $DIR/wezterm.lua ~/.config/wezterm/wezterm.lua
+ln -s${LINKOPTS} $DIR/wezterm.lua ~/.config/wezterm/wezterm.lua
 
 # template color config
 echo $THEME | template --template $DIR/colors.lua.template --configuration - > ~/.config/wezterm/colors.lua
