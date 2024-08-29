@@ -1,3 +1,0 @@
-includes = [".dotter/themes/catppuccin-macchiato.toml"]
-
-packages = ["common", "sway"]
