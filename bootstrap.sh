@@ -35,13 +35,18 @@ function format-btrfs() {
    subvol-mount @tmp /tmp
    subvol-mount @log /var/log
    subvol-mount @pkg /var/cache/pacman/pkg
-   subvol-mount 5 /btrfs
+   # subvol-mount 5 /btrfs
 }
-format-btrfs /dev/sda1
-btrfs sub list /mnt/
-# umount /mnt
-# install git into the live iso
-# git clone dotfiles
+
+# install git into the live iso (also updates the database, so win win)
+pacman -Sy git
+
+echo 'Where would you like the dotfiles repo to live? (default ~/.dotfiles)'
+read DOTFILES_DIR
+
+# use git to clone the repo
+echo $0
+# git clone 
 #
 # arch-chroot /mnt
 #
