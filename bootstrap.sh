@@ -39,9 +39,8 @@ function format-btrfs() {
    }
    subvol-mount @ /
    subvol-mount @tmp /tmp
-   subvol-mount @log /var/log
-   subvol-mount @pkg /var/cache/pacman/pkg
-   # subvol-mount 5 /btrfs
+   subvol-mount @var /var
+   subvol-mount @opt /opt
 }
 
 function format-ext4() {
@@ -93,7 +92,7 @@ git clone $bootsh_CLONE_URL $bootsh_CLONE_DIR
 cd $bootsh_CLONE_DIR
 
 # this is where the real work happens - thanks auto!
-PACMAN_INSTALL_CMD='pacstrap /mnt -K'
+PACMAN_INSTALL_CMD='pacstrap /mnt'
 AUR_INSTALL_CMD='aur-install'
 FSROOT=/mnt
 ./auto.sh
