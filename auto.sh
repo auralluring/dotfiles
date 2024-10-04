@@ -20,13 +20,13 @@ fi
 DOTFILES_DIR=${EXECUTABLE%/*}
 cd $DOTFILES_DIR
 
-function source() {
-    if [[ ! -f $1 ]]; then
-        echo "$1 does not exist"
-	return 1
-    fi
-    builtin source $1
-}
+# function source() {
+#     if [[ ! -f $1 ]]; then
+#         echo "$1 does not exist"
+# 	return 1
+#     fi
+#     builtin source $1
+# }
 
 # run host scripts
 for script in $HOST_SCRIPTS; do
